@@ -8,7 +8,7 @@ numBins = 100;
 obj = obj.getFigHandle();
 
 subplot(2,2,1)
-imagescnan(obj.simMat .* obj.outlierMask)
+imagesc(obj.simMat .* obj.outlierMask)
 colorbar
 axis equal tight
 title('Autocorr. Matrix');
@@ -16,7 +16,7 @@ xlabel('Volumes')
 ylabel('Volumes')
 
 subplot(2,2,2)
-autocorrelation.scatter2heat(...
+act.scatter2heat(...
     obj.simMat(obj.tril), ...
     obj.dist(obj.tril), [], ...
     { linspace( min(obj.simMat(obj.tril)), ...

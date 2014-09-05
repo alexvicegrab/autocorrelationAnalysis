@@ -6,6 +6,15 @@ if ~isempty(obj.covarFN)
     
     % Get covariates
     obj.covarVec = load(obj.covarFN);
+    % Handle simple cases
+    if isstruct(obj.covarVec)
+       F = fieldnames(obj.covarVec);
+       if length(F) == 1
+          obj.covarVec = obj.covarVec.(F{1});
+       else
+           error('Too many fields in structure')
+       end
+    end
     
     % Get them the right way up
     if size(obj.covarVec, 1) < size(obj.covarVec, 2)

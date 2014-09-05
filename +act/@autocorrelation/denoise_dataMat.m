@@ -2,7 +2,7 @@ function obj = denoise_dataMat(obj)
 
 for a = 1:length(obj.analyses)
     switch obj.analyses{a}
-        case 'covariate'
+        case {'covariate', 'retroicor', 'compartment'}
             % Get covariates
             obj = obj.covariates();
             
@@ -30,6 +30,7 @@ for a = 1:length(obj.analyses)
             
             obj.dataMat = act.prewhiten(obj.dataMat);
             %autocorrelation.whiten(obj.dataMat);
+            
         case 'highpassSPM'
             
             % Let's first set up the parameters...
@@ -75,6 +76,9 @@ for a = 1:length(obj.analyses)
             obj.dataMat = ifft(Y, [], 2);
             
             % plot(log(mean(2*abs(Y(:, 1:NFFT/2+1)))))
+        case 'test'
+            keyboard
+            
         otherwise
             error('No such denoise_dataMat method')
     end

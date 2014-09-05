@@ -1,4 +1,4 @@
-function accuracy = autocorrelation_torque_DMLT(autocorrelationFn, eventDur, classifier)
+function accuracy = acHelper_DMLT(autocorrelationFn, eventDur, classifier)
 if nargin < 3
     classifier = dml.svm;
 else

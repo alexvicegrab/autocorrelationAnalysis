@@ -1,4 +1,4 @@
-function accuracy = autocorrelation_torque_RSA(autocorrelationFn, eventDur)
+function accuracy = acHelper_RSA(autocorrelationFn, eventDur)
 
 %% Parameters
 fprintf('loading %s\n', autocorrelationFn)

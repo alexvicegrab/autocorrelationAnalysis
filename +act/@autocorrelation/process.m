@@ -11,7 +11,7 @@ else
     %% Get 4d data
     % Load image headers using SPM
     dataHdr = spm_vol(...
-        ls(fullfile(obj.dataPath, obj.dataWildcard)));
+        act.ls2char(fullfile(obj.dataPath, obj.dataWildcard)));
     
     % Load images themselves
     obj.dataMat = spm_read_vols(dataHdr);
